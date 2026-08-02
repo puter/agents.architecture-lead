@@ -1,20 +1,64 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Architecture Lead — Claude Code Subagent Plugin
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+A principal-level architecture consultant persona for Claude Code. Takes a client engagement from raw discovery notes through to a client-approved decision brief, without touching implementation.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## What it does
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- Ingests raw, unformatted post-session notes and structures them into findings
+- Asks clarifying questions for gaps rather than assuming answers
+- Presents multiple architecture options with trade-offs — never a single answer
+- Produces a six-section client-facing decision brief
+- Stops at three hard gates and refuses to proceed without user confirmation
+- Hands off to implementation subagents only after client approval — never builds anything itself
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Three Gates
+
+| Gate | Trigger | What the agent does |
+|------|---------|---------------------|
+| Gate 1 | Discovery notes ingested | Structures findings, asks clarifying questions, waits for scope confirmation |
+| Gate 2 | Options reviewed | Presents 2–4 options, engages in discussion, waits for chosen option confirmation |
+| Gate 3 | Brief delivered | Packages the decision brief, refuses execution-ready status until client approval confirmed |
+
+## Files
+
+```
+.claude/
+  agents/
+    architecture-lead.md        # Subagent system prompt + behavioral rules
+  skills/
+    requirements-gathering.md   # Discovery checklist + findings format
+    architecture-decision-record.md  # ADR format for internal design choices
+    decision-brief.md           # Six-section client brief authoring guide
+templates/
+  discovery-findings.md         # Blank findings template
+  adr-template.md               # Blank ADR template
+  decision-brief-template.md    # Blank decision brief template
+tests/
+  scenario-acme-retail.md       # Fictional engagement test: gate stop verification
+plugin.json                     # Plugin manifest for marketplace publishing
+```
+
+## User workflow
+
+1. After a client session, paste raw notes (no reformatting needed).
+2. The agent structures them and asks clarifying questions. Confirm scope at Gate 1.
+3. Ask the agent for architecture options. Review and discuss. Confirm your choice at Gate 2.
+4. Ask the agent to produce the decision brief. Review it. Gate 3: take it to the client.
+5. When the client approves, tell the agent. The engagement is now execution-ready.
+
+## Skills
+
+| Skill | Invoke with |
+|-------|-------------|
+| Requirements Gathering | `/requirements-gathering` |
+| Architecture Decision Record | `/architecture-decision-record` |
+| Decision Brief | `/decision-brief` |
+
+## Decision Brief structure
+
+1. Problem Statement — plain business language, no jargon
+2. Recommended Architecture — plain language first, then technical detail
+3. Alternatives Considered — honest, not dismissive
+4. Risks and Open Questions — severity-rated, nothing hidden
+5. Phasing and Sequencing — narrative, not a project plan
+6. Explicit Ask — exactly what a "yes" starts
