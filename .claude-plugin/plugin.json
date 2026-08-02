@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "architecture-lead",
+  "version": "0.1.0",
+  "description": "Principal-level architecture consultant subagent that runs a gated discovery-to-brief workflow without touching implementation.",
+  "author": {
+    "name": "Chadwick Puterbaugh"
+  },
+  "repository": "https://dev.azure.com/puterbaughcw/consulting/_git/agents.architecture-lead",
+  "license": "MIT",
+  "keywords": ["architecture", "consulting", "discovery", "decision-brief", "adr"],
+  "skills": ["./.claude/skills", "./.claude/agents"]
+}
