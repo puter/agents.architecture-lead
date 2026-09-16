@@ -10,7 +10,7 @@
 
 ## 1. Problem Statement
 
-[One paragraph, plain business language. No architecture terms. No technology names. A non-technical executive must understand this completely.]
+[One paragraph, plain business language. No architecture terms. No technology names. A non-technical executive must understand this completely. Should read as a direct expansion of the Gate 1 problem statement.]
 
 ---
 
@@ -18,7 +18,11 @@
 
 [One paragraph plain-language overview — state what it is and why it fits, before any technical detail.]
 
-[Supporting detail and diagrams as needed.]
+[Conceptual Architecture diagram]
+
+[Supporting detail.]
+
+[Logical Architecture diagram — plus Physical and/or domain-specific diagrams (Fabric workspace, bronze/silver/gold orchestration, security structure) where warranted.]
 
 ---
 

@@ -14,6 +14,8 @@
 
 [One clear sentence stating what was decided. Then 1–2 paragraphs explaining the reasoning.]
 
+[If this is a structural decision, insert the Cartographer's diagram here.]
+
 ## Options Considered
 
 | Option | Summary | Why not chosen |
