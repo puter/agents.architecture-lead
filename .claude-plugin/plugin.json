@@ -1,12 +1,12 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "architecture-lead",
-  "version": "0.4.0",
-  "description": "Principal-level architecture consultant subagent team that runs a gated discovery-to-brief workflow — with a skeptic/practical-planner check-and-balance and a cartographer that diagrams every architectural output — without touching implementation.",
+  "version": "0.5.0",
+  "description": "Principal-level architecture consultant subagent team that runs a gated discovery-to-brief workflow — with a skeptic/practical-planner check-and-balance, a cartographer that diagrams every architectural output, and a project manager for budgeting, sequencing, and weekly close-outs — without touching implementation.",
   "author": {
     "name": "Chadwick Puterbaugh"
   },
   "repository": "https://github.com/puter/agents.architecture-lead",
   "license": "MIT",
-  "keywords": ["architecture", "consulting", "discovery", "decision-brief", "adr", "diagramming", "excalidraw"]
+  "keywords": ["architecture", "consulting", "discovery", "decision-brief", "adr", "diagramming", "excalidraw", "project-management", "fabric"]
 }
